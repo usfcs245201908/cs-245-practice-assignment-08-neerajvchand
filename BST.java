@@ -1,64 +1,60 @@
 public class BST<T> {
 	Node root;
 	
-	/*
-	 * This is the constructor of class BST
-	 */
+	
+	//This is the constructor of class BST
+	
 	public BST() {
 		root = null;
 	}
 	
-	/*
-	 * This inner class defines Node
-	 */
+	
+	//This inner class defines Node
+	
 	class Node<T>{
 		Comparable data;
 		Node left;
 		Node right;
 		int instance = 0;
 		
-		/*
-		 * This is the constructor of inner class Node
-		 */
+		
+		//This is the constructor of inner class Node
+		
 		public Node(Comparable testString) {
 			data = testString;
 		}
 	}
 
-	/*
-	 * This insert method calls the other recursive insert method
-	 */
+
+	//This insert method calls the other recursive insert method
+	
 	public void insert(Comparable testString) {
 		root = insert(testString, root);	
 	}
 
-	/*
-	 * This find method calls the other recursive find method
-	 */
+
+	//This find method calls the other recursive find method
+
 	public boolean find(Comparable testString) {
 		return find(testString, root);
 	}
 
-	/*
-	 * This delete method calls the other recursive delete method
-	 */
+
+	//This delete method calls the other recursive delete method
+	
 	public void delete(Comparable testString) {
 		root = delete(testString, root);
 	}
 
-	/*
-	 * This print method calls the other recursive print method
-	 */
+	//This print method calls the other recursive print method
+
 	public void print() {
 		print(root);
 	}
 	
-	/**
-	 * This method is to check if there is the target testString in the tree
-	 * @param testString This is the String passed by class Practice08test
-	 * @param node This is the current node that is checking
-	 * @return This returns true if the String is found
-	 */
+	
+	//This method is to check if the target testString is in the tree and returns true if the String is found
+
 	private boolean find(Comparable testString, Node node) {
 		if(node == null)
 			return false;
@@ -72,12 +68,9 @@ public class BST<T> {
 			return find(testString, node.right);	
 	}
 	
-	/**
-	 * This method is to insert a String to the tree
-	 * @param testString This is the String passed by class Practice08test
-	 * @param node This is the current node that is checking
-	 * @return This returns a node that is the root
-	 */
+	
+	 // This method is to insert a String to the tree
+	
 	private Node insert(Comparable testString, Node node) {
 		if(node == null)
 			return new Node(testString);
@@ -95,12 +88,9 @@ public class BST<T> {
 			
 	}
 	
-	/**
-	 * This method is to delete the String from the tree
-	 * @param testString This is the String passed by class Practice08test
-	 * @param node This is the current node that is checking
-	 * @return This returns a node that is the root
-	 */
+
+	//This method is to delete the String from the tree
+
 	private Node delete(Comparable testString, Node node) {
 		if(node == null)
 			return null;
@@ -138,11 +128,9 @@ public class BST<T> {
 		}
 	}
 	
-	/**
-	 * This method is to remove the smallest String
-	 * @param node This is the current node that is checking
-	 * @return This returns the smallest String
-	 */
+	
+	//This method is to remove the smallest String
+	
 	private Comparable removesmallest(Node node) {
 		if(node.left.left == null) {
 			Comparable smallest = node.left.data;
@@ -152,11 +140,9 @@ public class BST<T> {
 		return removesmallest(node.left);
 	}
 	
-	/**
-	 * This method is to print the tree in order
-	 * @param node This is the current node that is checking
-	 * @return This returns the current node that is printed
-	 */
+
+	//This method is to print the tree in order
+	
 	private Node print(Node node) {
 		if(node == null)
 			return null;
